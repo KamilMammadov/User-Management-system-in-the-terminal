@@ -20,8 +20,5 @@ namespace UserManagementSystem.Database.Repository
             Console.WriteLine("You successfully registered, now you can login with your new account!");
             return firstUser;
         }
-
-
-
     }
 }

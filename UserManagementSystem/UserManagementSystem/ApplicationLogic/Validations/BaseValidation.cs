@@ -10,7 +10,7 @@ namespace UserManagementSystem.ApplicationLogic.Validations
     class BaseValidation
     {
 
-        public static bool IsLength(string word)
+        public  bool IsLengthThreeThirty(string word)
         {
             string pattern = @"[a-zA-Z]{3,30}";
             Regex regex = new Regex(pattern);
@@ -19,14 +19,24 @@ namespace UserManagementSystem.ApplicationLogic.Validations
             return regex.IsMatch(word);
         }
 
-        public static bool IsFirstLetterUpper(string word)
+
+        public  bool IsLengthTenThirty(string word)
+        {
+            string pattern = @"[a-zA-Z]{10,30}";
+            Regex regex = new Regex(pattern);
+
+
+            return regex.IsMatch(word);
+        }
+
+        public bool IsFirstLetterUpper(string word)
         {
             string pattern = @"^[A-Z]";
             Regex regex = new Regex(pattern);
             return regex.IsMatch(word);
         }
 
-        public static bool IsNumberExist(string word)
+        public bool IsNumberExist(string word)
         {
             string pattern = @"[0-9]";
             Regex regex = new Regex(pattern);
@@ -34,7 +44,7 @@ namespace UserManagementSystem.ApplicationLogic.Validations
             return regex.IsMatch(word);
         }
 
-        public static bool IsOnlyNumberAndLetter(string word)
+        public bool IsOnlyNumberAndLetter(string word)
         {
             string pattern = @"[a-zA-Z0-9]";
             Regex regex = new Regex(pattern);
@@ -42,7 +52,7 @@ namespace UserManagementSystem.ApplicationLogic.Validations
             return regex.IsMatch(word);
         }
 
-        public static bool IsOneLetterUpperAndLower(string word)
+        public bool IsOneLetterUpperAndLower(string word)
         {
             string firstpattern = @"[a-z]";
             string secondpattern = @"[A-Z]";
