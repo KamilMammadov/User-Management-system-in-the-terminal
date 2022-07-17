@@ -18,6 +18,7 @@ namespace UserManagementSystem
                 if (command == "/register")
                 {
                     Authentication.Register();
+
                 }
                 else if(command == "/login")
                 {

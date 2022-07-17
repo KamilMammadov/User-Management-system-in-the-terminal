@@ -33,18 +33,8 @@ namespace UserManagementSystem.ApplicationLogic
 
             Console.WriteLine("enter email:");
             string email = Console.ReadLine();
-            while (!UserValidation.IsEmailValid(email) & !UserValidation.IsEmailUnique(email))
-            {
-
-                if (!UserValidation.IsEmailValid(email))
-                {
-                    Console.WriteLine("Email domain is code.edu.az . You must use @ in your email and your email must be greater than 10 and less than 30");
-                }
-                else if (!UserValidation.IsEmailUnique(email))
-                {
-                    Console.WriteLine("Email is already exist");
-                }
-
+            while (!(UserValidation.IsEmailValid(email) && UserValidation.IsEmailUnique(email)))
+            {              
                 email = Console.ReadLine();
             }
 
@@ -54,14 +44,13 @@ namespace UserManagementSystem.ApplicationLogic
             Console.WriteLine("Please enter password again for security");
             string checkpassword = Console.ReadLine();
 
-            while (!UserValidation.IsPassword(password) & !UserValidation.IsCheckPassword(password, checkpassword))
+            while (!(UserValidation.IsPassword(password) && UserValidation.IsCheckPassword(password, checkpassword)))
             {
                 Console.WriteLine("Please enter password again");
                 password = Console.ReadLine();
                 Console.WriteLine("Please enter password again for security");
                 checkpassword = Console.ReadLine();
             }
-
 
             UserRepository.Add(name, surname, email, password);
             Console.WriteLine("You successfully registered, now you can login with your new account!");
@@ -80,8 +69,8 @@ namespace UserManagementSystem.ApplicationLogic
 
                 if (email == "admin@gmail.com" && password == "123321")
                 {
-                    Console.WriteLine("Welcome dear ");
-                    UserValidation.GetUser(email);
+                    Console.Write("Welcome dear ");
+                    Console.WriteLine(UserValidation.GetUser(email));
 
                     Console.WriteLine("/show-users");
                     string command = Console.ReadLine();

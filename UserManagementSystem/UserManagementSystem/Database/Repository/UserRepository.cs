@@ -20,13 +20,16 @@ namespace UserManagementSystem.Database.Repository
         {
             User firstUser = new User(name, surname, email, password);
             Users.Add(firstUser);
-            Console.WriteLine("You successfully registered, now you can login with your new account!");
+            
             return firstUser;
         }
 
-        public static List<User> GetAll()
+        public static void GetAll()
         {
-            return Users;
+            foreach (User user in Users)
+            {
+                Console.WriteLine(user.Id+" "+ user.Name+" "+ user.Surname+" "+user.Email+" "+user.Password);
+            }
         }
     }
 }

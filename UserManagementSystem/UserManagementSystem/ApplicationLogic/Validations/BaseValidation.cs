@@ -12,7 +12,7 @@ namespace UserManagementSystem.ApplicationLogic.Validations
 
         public static bool IsLength(string word,int min,int max)
         {
-            string pattern = @"[a-zA-Z]{" + min + "," + max + "}";
+            string pattern = @"[a-zA-Z]{3,30}";
             Regex regex = new Regex(pattern);
 
 
@@ -21,7 +21,7 @@ namespace UserManagementSystem.ApplicationLogic.Validations
 
         public static bool IsLength(string word,int min)
         {
-            string pattern = @"[a-zA-Z]{" + min + ",}";
+            string pattern = @"[a-zA-Z]{8,}";
             Regex regex = new Regex(pattern);
 
 

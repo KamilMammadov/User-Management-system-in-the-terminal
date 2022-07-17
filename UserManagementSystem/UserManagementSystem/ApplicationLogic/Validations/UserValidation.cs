@@ -22,10 +22,10 @@ namespace UserManagementSystem.ApplicationLogic.Validations
         }
 
 
-
+        
         public static bool IsEmailValid(string email)
         {
-            return IsLength(email,10,30) && IsOnlyNumberAndLetter(email) && IsEmailDomain(email);
+            return (IsLength(email,10,30) && IsOnlyNumberAndLetter(email) && IsEmailDomain(email) && IsEmailUnique(email));
         }
 
 
