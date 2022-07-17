@@ -13,19 +13,19 @@ namespace UserManagementSystem.ApplicationLogic.Validations
     {
         public bool IsName(string name)
         {
-            return IsLengthThreeThirty(name) && !IsNumberExist(name) && IsFirstLetterUpper(name);
+            return IsLength(name) && !IsNumberExist(name) && IsFirstLetterUpper(name);
         }
 
         public bool IsSurname(string surname)
         {
-            return IsLengthThreeThirty(surname) && !IsNumberExist(surname) && IsFirstLetterUpper(surname);
+            return IsLength(surname) && !IsNumberExist(surname) && IsFirstLetterUpper(surname);
         }
 
 
 
         public bool IsEmailValid(string email)
         {
-            return IsLengthTenThirty(email) && IsOnlyNumberAndLetter(email) && IsEmailDomain(email);
+            return IsLength(email) && IsOnlyNumberAndLetter(email) && IsEmailDomain(email);
         }
 
 

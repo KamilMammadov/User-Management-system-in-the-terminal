@@ -24,11 +24,12 @@ namespace UserManagementSystem
                 }
                 else if (command == "/exit")
                 {
-
+                    break;
                 }
                 else
                 {
                     Console.WriteLine($"{command} is not a command");
+                    
                 }
 
 
