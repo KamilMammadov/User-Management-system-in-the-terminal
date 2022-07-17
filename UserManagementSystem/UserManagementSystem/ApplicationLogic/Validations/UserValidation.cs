@@ -11,25 +11,25 @@ namespace UserManagementSystem.ApplicationLogic.Validations
 {
     class UserValidation : BaseValidation
     {
-        public bool IsName(string name)
+        public static bool IsName(string name)
         {
-            return IsLength(name) && !IsNumberExist(name) && IsFirstLetterUpper(name);
+            return IsLength(name,3,30) && !IsNumberExist(name) && IsFirstLetterUpper(name);
         }
 
-        public bool IsSurname(string surname)
+        public static bool IsSurname(string surname)
         {
-            return IsLength(surname) && !IsNumberExist(surname) && IsFirstLetterUpper(surname);
-        }
-
-
-
-        public bool IsEmailValid(string email)
-        {
-            return IsLength(email) && IsOnlyNumberAndLetter(email) && IsEmailDomain(email);
+            return IsLength(surname,3,30) && !IsNumberExist(surname) && IsFirstLetterUpper(surname);
         }
 
 
-        public bool IsEmailDomain(string email)
+
+        public static bool IsEmailValid(string email)
+        {
+            return IsLength(email,10,30) && IsOnlyNumberAndLetter(email) && IsEmailDomain(email);
+        }
+
+
+        public static bool IsEmailDomain(string email)
         {
             string pattern = @"^[a-z]+[\w.]+@code+[.]+edu+[.]+az";
             Regex regex = new Regex(pattern);
@@ -39,7 +39,7 @@ namespace UserManagementSystem.ApplicationLogic.Validations
 
 
 
-        public bool IsEmailUnique(string email)
+        public static bool IsEmailUnique(string email)
         {
             foreach (User user in UserRepository.Users)
             {
@@ -51,11 +51,27 @@ namespace UserManagementSystem.ApplicationLogic.Validations
             return true;
         }
 
-        public bool IsPassword(string password)
+        public static bool IsPassword(string password)
         {
-            return IsOneLetterUpperAndLower(password) && IsNumberExist(password);
+            if (IsOneLetterUpperAndLower(password) && IsNumberExist(password) && IsLength(password, 8))
+            {
+                return true;
+            }
+
+            Console.WriteLine("password is not correct ");
+            return false;
         }
 
+
+        public static bool IsCheckPassword(string password,string checkPassword)
+        {
+            if (password==checkPassword)
+            {   
+                return true;
+            }
+            Console.WriteLine("Security password is not correct!");
+            return false;
+        }
 
 
 

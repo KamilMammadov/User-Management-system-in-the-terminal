@@ -1,4 +1,5 @@
 ﻿using System;
+using UserManagementSystem.ApplicationLogic;
 
 namespace UserManagementSystem
 {
@@ -16,7 +17,7 @@ namespace UserManagementSystem
 
                 if (command == "/register")
                 {
-
+                    Authentication.Register();
                 }
                 else if(command == "/login")
                 {

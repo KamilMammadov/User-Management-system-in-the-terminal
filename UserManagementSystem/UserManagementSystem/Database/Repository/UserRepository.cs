@@ -10,10 +10,13 @@ namespace UserManagementSystem.Database.Repository
     class UserRepository
     {
 
-        public static List<User> Users { get; set; } = new List<User>();
+        public static List<User> Users { get; set; } = new List<User>()
+        {
+            new User("Super","Admin","admin@gmail.com","123321")
+        };
 
 
-        public static User Add(string name,string surname,string email,string password)
+        public static User Add(string name, string surname, string email, string password)
         {
             User firstUser = new User(name, surname, email, password);
             Users.Add(firstUser);
