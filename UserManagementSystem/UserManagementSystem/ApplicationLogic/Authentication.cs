@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UserManagementSystem.ApplicationLogic.Validations;
+using UserManagementSystem.Database.Repository;
 
 namespace UserManagementSystem.ApplicationLogic
 {
@@ -16,7 +17,8 @@ namespace UserManagementSystem.ApplicationLogic
             
             while (!UserValidation.IsName(name))
             {
-                Console.WriteLine("Name is not correct ! Please enter name again : ");
+                Console.WriteLine("The name you entered is incorrect, make sure the name contains only letters, the first letter is capitalized," +
+                    " and the length is greater than 3 and less than 30.\n Please enter name again : ");
                 name = Console.ReadLine();
             }
 
@@ -24,7 +26,8 @@ namespace UserManagementSystem.ApplicationLogic
             string surname = Console.ReadLine();
             while (!UserValidation.IsSurname(surname))
             {
-                Console.WriteLine("Surname is not correct ! Please enter surname again : ");
+                Console.WriteLine("The name you entered is incorrect, make sure the name contains only letters, the first letter is capitalized, " +
+                    "and the length is greater than 3 and less than 30. \n Please enter surname again : ");
                 surname = Console.ReadLine();
             }
 
@@ -35,7 +38,7 @@ namespace UserManagementSystem.ApplicationLogic
 
                 if (!UserValidation.IsEmailValid(email))
                 {
-                    Console.WriteLine("Email duzgun deyil");
+                    Console.WriteLine("Email domain is code.edu.az . You must use @ in your email and your email must be greater than 10 and less than 30");
                 }
                 else if (!UserValidation.IsEmailUnique(email))
                 {
@@ -60,8 +63,8 @@ namespace UserManagementSystem.ApplicationLogic
             }
 
 
-
-
+            UserRepository.Add(name, surname, email, password);
+            Console.WriteLine("You successfully registered, now you can login with your new account!");
         }
 
 

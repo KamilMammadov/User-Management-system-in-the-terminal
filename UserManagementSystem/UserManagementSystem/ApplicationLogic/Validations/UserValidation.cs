@@ -58,7 +58,7 @@ namespace UserManagementSystem.ApplicationLogic.Validations
                 return true;
             }
 
-            Console.WriteLine("password is not correct ");
+            Console.WriteLine("Password must have 1 capital letter , 1 lowercase letter and you cant use symbols in your password");
             return false;
         }
 
