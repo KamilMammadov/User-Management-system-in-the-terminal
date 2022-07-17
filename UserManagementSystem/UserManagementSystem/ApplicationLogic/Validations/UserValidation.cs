@@ -74,6 +74,34 @@ namespace UserManagementSystem.ApplicationLogic.Validations
         }
 
 
+        ////////////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        ///////////////////////////////////////////////         LOGIN PART      \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        
+
+        public static bool IsLogin(string email,string password)
+        {
+            foreach (User user in UserRepository.Users)
+            {
+                if (user.Email==email && user.Password==password)
+                {
+                    return true;
+                }           
+            }
+            return false;
+        }
+
+        public static string GetUser(string email)
+        {
+            foreach (User user in UserRepository.Users)
+            {
+                if (user.Email==email)
+                {
+                    return $"{user.Id} {user.Name} {user.Surname} {user.Email} {user.Password}";
+                }
+            }
+               return "You are not admin";
+        }
+
 
     }
 }

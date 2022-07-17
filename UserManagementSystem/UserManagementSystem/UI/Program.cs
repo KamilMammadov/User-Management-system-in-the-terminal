@@ -21,7 +21,7 @@ namespace UserManagementSystem
                 }
                 else if(command == "/login")
                 {
-
+                    Authentication.Login();
                 }
                 else if (command == "/exit")
                 {
@@ -32,12 +32,7 @@ namespace UserManagementSystem
                     Console.WriteLine($"{command} is not a command");
                     
                 }
-
-
-
-
             }
-
         }
     }
 }
