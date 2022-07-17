@@ -67,6 +67,7 @@ namespace UserManagementSystem.ApplicationLogic
             Console.WriteLine("You successfully registered, now you can login with your new account!");
         }
 
+        public static void Login
 
 
     }

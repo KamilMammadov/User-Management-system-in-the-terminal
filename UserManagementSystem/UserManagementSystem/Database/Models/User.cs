@@ -8,7 +8,8 @@ namespace UserManagementSystem.Database.Models
 {
     class User
     {
-
+        private static int _idCounter;
+        public int Id { get; set; }
         public string  Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
@@ -16,10 +17,12 @@ namespace UserManagementSystem.Database.Models
 
         public User(string name,string surname,string email,string password)
         {
+            Id = _idCounter;
             Name = name;
             Surname = surname;
             Email = email;
             Password = password;
+            _idCounter++;
         }
 
     }
