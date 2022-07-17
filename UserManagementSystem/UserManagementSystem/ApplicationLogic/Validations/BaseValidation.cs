@@ -18,11 +18,7 @@ namespace UserManagementSystem.ApplicationLogic.Validations
 
             return regex.IsMatch(word);
         }
-
-        
-
-       
-
+            
         public static bool IsFirstLetterUpper(string word)
         {
             string pattern = @"^[A-Z]";
