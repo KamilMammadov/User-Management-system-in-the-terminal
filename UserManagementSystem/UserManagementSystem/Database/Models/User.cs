@@ -17,7 +17,7 @@ namespace UserManagementSystem.Database.Models
         public string Email { get; set; }
         public string Password { get; set; }
         
-        public DateTime _registerTime { get; set; }
+        public DateTime RegisterTime { get; set; }
 
 
 
@@ -29,7 +29,7 @@ namespace UserManagementSystem.Database.Models
             Email = email;
             Password = password;
             _idCounter++;
-            _registerTime = DateTime.Now;
+            RegisterTime = DateTime.Now;
         }
 
     }

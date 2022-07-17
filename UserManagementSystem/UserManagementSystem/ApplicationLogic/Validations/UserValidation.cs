@@ -13,19 +13,19 @@ namespace UserManagementSystem.ApplicationLogic.Validations
     {
         public static bool IsName(string name)
         {
-            return IsLength(name,3,30) && !IsNumberExist(name) && IsFirstLetterUpper(name);
+            return IsLength(name) && !IsNumberExist(name) && IsFirstLetterUpper(name);
         }
 
         public static bool IsSurname(string surname)
         {
-            return IsLength(surname,3,30) && !IsNumberExist(surname) && IsFirstLetterUpper(surname);
+            return IsLength(surname) && !IsNumberExist(surname) && IsFirstLetterUpper(surname);
         }
 
 
         
         public static bool IsEmailValid(string email)
         {
-            return (IsLength(email,10,30) && IsOnlyNumberAndLetter(email) && IsEmailDomain(email) && IsEmailUnique(email));
+            return (IsEmailLength(email) && IsOnlyNumberAndLetter(email) && IsEmailDomain(email) && IsEmailUnique(email));
         }
 
 
@@ -55,7 +55,7 @@ namespace UserManagementSystem.ApplicationLogic.Validations
 
         public static bool IsPassword(string password)
         {
-            if (IsOneLetterUpperAndLower(password) && IsNumberExist(password) && IsLength(password, 8))
+            if (IsOneLetterUpperAndLower(password) && IsNumberExist(password) && IsPasswordLength(password))
             {
                 return true;
             }
@@ -74,11 +74,30 @@ namespace UserManagementSystem.ApplicationLogic.Validations
             Console.WriteLine("Security password is not correct!");
             return false;
         }
+        
+        public static bool IsEmailLength(string email)
+        {
+            
+                string pattern = @"[a-zA-Z]{10,30}";
+                Regex regex = new Regex(pattern);
 
+
+                return regex.IsMatch(email);
+            
+        }
+
+        public static bool IsPasswordLength(string word)
+        {
+            string pattern = @"[a-zA-Z]{8,}";
+            Regex regex = new Regex(pattern);
+
+
+            return regex.IsMatch(word);
+        }
 
         ////////////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         ///////////////////////////////////////////////         LOGIN PART      \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-        
+
 
         public static bool IsLogin(string email,string password)
         {
@@ -91,6 +110,8 @@ namespace UserManagementSystem.ApplicationLogic.Validations
             }
             return false;
         }
+
+        
 
         
 

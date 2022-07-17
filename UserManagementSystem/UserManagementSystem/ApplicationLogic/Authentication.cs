@@ -35,7 +35,7 @@ namespace UserManagementSystem.ApplicationLogic
             string email = Console.ReadLine();
             while (!(UserValidation.IsEmailValid(email) && UserValidation.IsEmailUnique(email)))
             {
-                Console.WriteLine("Your email is not correct");
+                Console.WriteLine("Email must have @ symbol , domain is code.edu.az . ");
 
                 Console.WriteLine();
                 email = Console.ReadLine();

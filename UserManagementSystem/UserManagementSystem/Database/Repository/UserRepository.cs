@@ -29,7 +29,7 @@ namespace UserManagementSystem.Database.Repository
         {
             foreach (User user in Users)
             {
-                Console.WriteLine(user.Id+" "+ user.Name+" "+ user.Surname+" "+user.Email+" "+user.Password+ "   "  + user._registerTime);
+                Console.WriteLine(user.Id+" "+ user.Name+" "+ user.Surname+" "+user.Email+" "+user.Password+ "   "  + user.RegisterTime);
             }
         }
 
@@ -39,7 +39,7 @@ namespace UserManagementSystem.Database.Repository
             {
                 if (user.Email == email)
                 {
-                    return $"{user.Id} {user.Name} {user.Surname}  Email : {user.Email} Password :  {user.Password} Register Time : {user._registerTime}";
+                    return $"{user.Id} {user.Name} {user.Surname}  Email : {user.Email} Password :  {user.Password} Register Time : {user.RegisterTime}";
                 }
             }
             return "You are not admin";

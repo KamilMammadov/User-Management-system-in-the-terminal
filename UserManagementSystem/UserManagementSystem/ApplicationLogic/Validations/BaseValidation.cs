@@ -10,7 +10,7 @@ namespace UserManagementSystem.ApplicationLogic.Validations
     class BaseValidation
     {
 
-        public static bool IsLength(string word,int min,int max)
+        public static bool IsLength(string word)
         {
             string pattern = @"[a-zA-Z]{3,30}";
             Regex regex = new Regex(pattern);
@@ -19,14 +19,7 @@ namespace UserManagementSystem.ApplicationLogic.Validations
             return regex.IsMatch(word);
         }
 
-        public static bool IsLength(string word,int min)
-        {
-            string pattern = @"[a-zA-Z]{8,}";
-            Regex regex = new Regex(pattern);
-
-
-            return regex.IsMatch(word);
-        }
+        
 
        
 

@@ -13,6 +13,8 @@ namespace UserManagementSystem
             Console.WriteLine("/exit");
             while (true)
             {
+                Console.WriteLine();
+                Console.WriteLine("Enter command");
                 string command = Console.ReadLine();
 
                 if (command == "/register")
