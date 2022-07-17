@@ -9,6 +9,7 @@ namespace UserManagementSystem.Database.Repository
 {
     class UserRepository
     {
+           
 
         public static List<User> Users { get; set; } = new List<User>()
         {
@@ -28,8 +29,20 @@ namespace UserManagementSystem.Database.Repository
         {
             foreach (User user in Users)
             {
-                Console.WriteLine(user.Id+" "+ user.Name+" "+ user.Surname+" "+user.Email+" "+user.Password);
+                Console.WriteLine(user.Id+" "+ user.Name+" "+ user.Surname+" "+user.Email+" "+user.Password+ "   "  + user._registerTime);
             }
+        }
+
+        public static string GetUser(string email)
+        {
+            foreach (User user in Users)
+            {
+                if (user.Email == email)
+                {
+                    return $"{user.Id} {user.Name} {user.Surname}  Email : {user.Email} Password :  {user.Password} Register Time : {user._registerTime}";
+                }
+            }
+            return "You are not admin";
         }
     }
 }

@@ -17,7 +17,7 @@ namespace UserManagementSystem.ApplicationLogic
 
             while (!UserValidation.IsName(name))
             {
-                Console.WriteLine("The name you entered is incorrect, make sure the name contains only letters, the first letter is capitalized," +
+                Console.WriteLine("The name you entered is incorrect, make sure the name contains only letters,\n the first letter is capitalized," +
                     " and the length is greater than 3 and less than 30.\n Please enter name again : ");
                 name = Console.ReadLine();
             }
@@ -26,7 +26,7 @@ namespace UserManagementSystem.ApplicationLogic
             string surname = Console.ReadLine();
             while (!UserValidation.IsSurname(surname))
             {
-                Console.WriteLine("The name you entered is incorrect, make sure the name contains only letters, the first letter is capitalized, " +
+                Console.WriteLine("The name you entered is incorrect, make sure the name contains only letters,\n the first letter is capitalized, " +
                     "and the length is greater than 3 and less than 30. \n Please enter surname again : ");
                 surname = Console.ReadLine();
             }
@@ -34,7 +34,10 @@ namespace UserManagementSystem.ApplicationLogic
             Console.WriteLine("enter email:");
             string email = Console.ReadLine();
             while (!(UserValidation.IsEmailValid(email) && UserValidation.IsEmailUnique(email)))
-            {              
+            {
+                Console.WriteLine("Your email is not correct");
+
+                Console.WriteLine();
                 email = Console.ReadLine();
             }
 
@@ -51,9 +54,11 @@ namespace UserManagementSystem.ApplicationLogic
                 Console.WriteLine("Please enter password again for security");
                 checkpassword = Console.ReadLine();
             }
+           
 
             UserRepository.Add(name, surname, email, password);
             Console.WriteLine("You successfully registered, now you can login with your new account!");
+            
         }
 
         public static void Login()
@@ -70,7 +75,7 @@ namespace UserManagementSystem.ApplicationLogic
                 if (email == "admin@gmail.com" && password == "123321")
                 {
                     Console.Write("Welcome dear ");
-                    Console.WriteLine(UserValidation.GetUser(email));
+                    Console.WriteLine(UserRepository.GetUser(email));
 
                     Console.WriteLine("/show-users");
                     string command = Console.ReadLine();
@@ -83,17 +88,13 @@ namespace UserManagementSystem.ApplicationLogic
                 else
                 {
                     Console.Write("Welcome ");
-                    UserValidation.GetUser(email);
+                    Console.WriteLine(UserRepository.GetUser(email));
                 }
             }
             else
             {
                 Console.WriteLine("Email or Password is wrong !");
             }
-
-
         }
-
-
     }
 }

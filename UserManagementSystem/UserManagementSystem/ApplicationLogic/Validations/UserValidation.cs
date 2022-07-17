@@ -45,9 +45,11 @@ namespace UserManagementSystem.ApplicationLogic.Validations
             {
                 if (user.Email == email)
                 {
+                    Console.WriteLine("This Mail Is Used");
                     return false;
                 }
             }
+
             return true;
         }
 
@@ -90,17 +92,7 @@ namespace UserManagementSystem.ApplicationLogic.Validations
             return false;
         }
 
-        public static string GetUser(string email)
-        {
-            foreach (User user in UserRepository.Users)
-            {
-                if (user.Email==email)
-                {
-                    return $"{user.Id} {user.Name} {user.Surname} {user.Email} {user.Password}";
-                }
-            }
-               return "You are not admin";
-        }
+        
 
 
     }

@@ -8,12 +8,18 @@ namespace UserManagementSystem.Database.Models
 {
     class User
     {
+        
+
         private static int _idCounter;
         public int Id { get; set; }
         public string  Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        
+        public DateTime _registerTime { get; set; }
+
+
 
         public User(string name,string surname,string email,string password)
         {
@@ -23,6 +29,7 @@ namespace UserManagementSystem.Database.Models
             Email = email;
             Password = password;
             _idCounter++;
+            _registerTime = DateTime.Now;
         }
 
     }
