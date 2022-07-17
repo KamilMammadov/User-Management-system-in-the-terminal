@@ -6,7 +6,36 @@ namespace UserManagementSystem
     {
         static void Main(string[] args)
         {
-          
+            Console.WriteLine("Commands : ");
+            Console.WriteLine("/register");
+            Console.WriteLine("/login");
+            Console.WriteLine("/exit");
+            while (true)
+            {
+                string command = Console.ReadLine();
+
+                if (command == "/register")
+                {
+
+                }
+                else if(command == "/login")
+                {
+
+                }
+                else if (command == "/exit")
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine($"{command} is not a command");
+                }
+
+
+
+
+            }
+
         }
     }
 }
